@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { NgIf } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { StartPageComponent } from './start-page/start-page.component';
@@ -11,6 +12,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { FicheEditComponent } from './fiche-edit/fiche-edit.component';
 import { CatalogNavigatorComponent } from './catalog-navigator/catalog-navigator.component';
 import { appRoutes } from './app.router';
+import { EqualValidatorDirective } from './shared/equal-validator.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { appRoutes } from './app.router';
     RegisterPageComponent,
     HomePageComponent,
     FicheEditComponent,
-    CatalogNavigatorComponent
+    CatalogNavigatorComponent,
+    EqualValidatorDirective
   ],
   imports: [
     BrowserModule,

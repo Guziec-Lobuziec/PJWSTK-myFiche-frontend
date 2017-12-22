@@ -1,3 +1,50 @@
-<p>
-  register-page works!
-</p>
+<div>
+  <form #registerForm="ngForm"
+  novalidate>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" 
+      required 
+      #username="ngModel"
+      [(ngModel)]="model.username"
+      >
+      <div *ngIf="username.invalid && username.touched" class="form-group col-md-3">
+        <span class="text-danger">Username must be filled</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" 
+      required
+      #password="ngModel"
+      [(ngModel)]="model.password"
+      >
+      <div *ngIf="password.invalid && password.touched" class="form-group col-md-3">
+        <span class="text-danger">Password must be filled</span>
+      </div>
+    </div>
+    <div class="form-group">
+
+      <label for="rPassword">Repeat password</label>
+      <input type="password" class="form-control" id="rPassword" name="rPassword" placeholder="Repeat password"
+      validateEqual="password"
+      required
+      #rPassword="ngModel"
+      [(ngModel)]="model.repeatPassword"
+      >
+      <div *ngIf="rPassword.invalid && rPassword.touched" class="form-group col-md-3">
+        <span class="text-danger">Passwords don't match</span>
+      </div>
+
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="Enter email"
+      required
+      #email="ngModel"
+      [(ngModel)]="model.email"
+      >
+    </div>
+    <button routerLink="/home" [disabled]="(registerForm.invalid && registerForm.touched) || registerForm.untouched" type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

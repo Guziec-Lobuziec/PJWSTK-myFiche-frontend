@@ -1,3 +1,22 @@
-<p>
-  login-page works!
-</p>
+<div>
+  <form #loginForm="ngForm" novalidate>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required #username="ngModel"
+        [(ngModel)]="model.username">
+      <div *ngIf="username.invalid && username.touched" class="form-group col-md-3">
+        <span class="text-danger">Username must be filled</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required #password="ngModel"
+        [(ngModel)]="model.password">
+      <div *ngIf="password.invalid && password.touched" class="form-group col-md-3">
+        <span class="text-danger">Password must be filled</span>
+      </div>
+    </div>
+    <button routerLink="/home" [disabled]="(loginForm.invalid && loginForm.touched) || loginForm.untouched" type="submit"
+      class="btn btn-primary">Zaloguj</button>
+  </form>
+</div>
