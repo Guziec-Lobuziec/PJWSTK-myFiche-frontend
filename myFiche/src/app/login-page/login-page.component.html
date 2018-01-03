@@ -1,22 +1,35 @@
-<div>
+<div class="container-fluid">
   <form #loginForm="ngForm" novalidate>
-    <div class="form-group">
-      <label for="username">Username</label>
-      <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required #username="ngModel"
-        [(ngModel)]="model.username">
-      <div *ngIf="username.invalid && username.touched" class="form-group col-md-3">
-        <span class="text-danger">Username must be filled</span>
+    <div class="form-row justify-content-around" id="top">
+      <div class="form-group col-md-4">
+        <label for="username">
+          <img src="https://zapodaj.net/images/08bdd420c4189.png" alt="Login:">
+          <div *ngIf="username.invalid && username.touched" class="form-group col-md-8">
+            <span class="text-danger">Proszę podać nazwę użytkownika</span>
+          </div>
+        </label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Wprowadź nazwę użytkownika" required #username="ngModel"
+          [(ngModel)]="model.username">
       </div>
     </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required #password="ngModel"
-        [(ngModel)]="model.password">
-      <div *ngIf="password.invalid && password.touched" class="form-group col-md-3">
-        <span class="text-danger">Password must be filled</span>
+    <div class="form-row justify-content-around">
+      <div class="form-group col-md-4">
+        <label for="password">
+          <img src="https://zapodaj.net/images/36d569cdd4a38.png" alt="Hasło:">
+          <div *ngIf="password.invalid && password.touched" class="form-group col-md-8">
+            <span class="text-danger">Proszę podać hasło</span>
+          </div>
+        </label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Wprowadź hasło" required #password="ngModel"
+          [(ngModel)]="model.password">
       </div>
     </div>
-    <button routerLink="/home" [disabled]="(loginForm.invalid && loginForm.touched) || loginForm.untouched" type="submit"
-      class="btn btn-primary">Zaloguj</button>
+    <div class="form-row justify-content-around">
+      <div class="form-group col-md-4 text-center">
+        <button routerLink="/home" [disabled]="(loginForm.invalid && loginForm.touched) || loginForm.untouched" type="submit" class="btn btn-link btn-lg">
+          <img src="https://zapodaj.net/images/54be6ce396de3.png" alt="Zaloguj" id="zaloguj">
+        </button>
+      </div>
+    </div>
   </form>
 </div>

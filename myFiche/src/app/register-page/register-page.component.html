@@ -1,50 +1,56 @@
-<div>
-  <form #registerForm="ngForm"
-  novalidate>
-    <div class="form-group">
-      <label for="username">Username</label>
-      <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" 
-      required 
-      #username="ngModel"
-      [(ngModel)]="model.username"
-      >
-      <div *ngIf="username.invalid && username.touched" class="form-group col-md-3">
-        <span class="text-danger">Username must be filled</span>
+<div class="container-fluid">
+  <form #registerForm="ngForm" novalidate>
+    <div class="form-row justify-content-around" id="top">
+      <div class="form-group col-md-4">
+        <label for="username">
+          <img src="https://zapodaj.net/images/08bdd420c4189.png" alt="Login:">
+          <div *ngIf="username.invalid && username.touched" class="form-group col-md-8">
+            <span class="text-danger">Proszę podać nazwę użytkownika</span>
+          </div>
+        </label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Wprowadź nazwę użytkownika" required #username="ngModel"
+          [(ngModel)]="model.username">
       </div>
     </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" 
-      required
-      #password="ngModel"
-      [(ngModel)]="model.password"
-      >
-      <div *ngIf="password.invalid && password.touched" class="form-group col-md-3">
-        <span class="text-danger">Password must be filled</span>
+    <div class="form-row justify-content-around">
+      <div class="form-group col-md-4">
+        <label for="password">
+          <img src="https://zapodaj.net/images/36d569cdd4a38.png" alt="Hasło:">
+          <div *ngIf="password.invalid && password.touched" class="form-group col-md-8">
+            <span class="text-danger">Proszę podać hasło</span>
+          </div>
+        </label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Wprowadź hasło" required #password="ngModel"
+          [(ngModel)]="model.password">
       </div>
     </div>
-    <div class="form-group">
-
-      <label for="rPassword">Repeat password</label>
-      <input type="password" class="form-control" id="rPassword" name="rPassword" placeholder="Repeat password"
-      validateEqual="password"
-      required
-      #rPassword="ngModel"
-      [(ngModel)]="model.repeatPassword"
-      >
-      <div *ngIf="rPassword.invalid && rPassword.touched" class="form-group col-md-3">
-        <span class="text-danger">Passwords don't match</span>
+    <div class="form-row justify-content-around">
+      <div class="form-group col-md-4">
+        <label for="rPassword">
+          <img src="https://zapodaj.net/images/43871c9c32b44.png" alt="Powtórz hasło:" id="rpass">
+          <div *ngIf="rPassword.invalid && rPassword.touched" class="form-group col-md-8">
+            <span class="text-danger">Hasła różnią się</span>
+          </div>
+        </label>
+        <input type="password" class="form-control" id="rPassword" name="rPassword" placeholder="Powtórz hasło" validateEqual="password"
+          required #rPassword="ngModel" [(ngModel)]="model.repeatPassword">
       </div>
-
     </div>
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" name="email" placeholder="Enter email"
-      required
-      #email="ngModel"
-      [(ngModel)]="model.email"
-      >
+    <div class="form-row justify-content-around">
+      <div class="form-group col-md-4">
+        <label for="email">
+          <img src="https://zapodaj.net/images/ff0c969102e2e.png" alt="E-mail:">
+        </label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required #email="ngModel" [(ngModel)]="model.email">
+      </div>
     </div>
-    <button routerLink="/home" [disabled]="(registerForm.invalid && registerForm.touched) || registerForm.untouched" type="submit" class="btn btn-primary">Submit</button>
+    <div class="form-row justify-content-around">
+      <div class="form-group col-md-4">
+        <button routerLink="/home" [disabled]="(registerForm.invalid && registerForm.touched) || registerForm.untouched" type="submit"
+          class="btn btn-link">
+          <img src="https://zapodaj.net/images/4428dec852343.png" alt="Zarejestruj" id="zarejestruj">
+        </button>
+      </div>
+    </div>
   </form>
 </div>
