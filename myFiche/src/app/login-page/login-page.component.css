@@ -1,0 +1,54 @@
+.container-fluid
+{
+   background-image: url("https://zapodaj.net/images/a799ab8ba5f6d.jpg");
+   background-color: #9eecff;
+   background-size: 100%; background-repeat: no-repeat; background-attachment: fixed;
+   position: absolute; 
+   right:0;
+   left: 0;
+   top: 0;
+   bottom: 0;      
+   width: auto;
+   height: auto;  
+}
+
+.form-group
+{
+    width: 300px;
+    display: inline;
+    padding-bottom: 30px;
+}
+
+span
+{
+    display: inline;
+}
+
+#top
+{
+    padding-top: 10%;    
+}
+
+img
+{
+    width: 30%;
+    height: 30%;
+}
+
+input
+{
+    border-radius: 20px;
+}
+
+#zaloguj
+{
+    padding-top: 20px;
+    width: 40%;
+    height: 40%;
+}
+
+button:hover
+{
+    transform: scale(1.05,1.05);       
+}
+
