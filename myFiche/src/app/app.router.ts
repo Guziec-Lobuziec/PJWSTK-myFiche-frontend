@@ -20,6 +20,7 @@ export var appRoutes: Routes = [
     },
     {
         path: 'home',
-        component: HomePageComponent
+        component: HomePageComponent,
+        children: [ { path: '**' } ]
     }
 ]
