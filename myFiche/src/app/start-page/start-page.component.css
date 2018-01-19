@@ -6,7 +6,7 @@
 
 .container-fluid
  {
-    background-image: url("https://zapodaj.net/images/a799ab8ba5f6d.jpg");
+    background-image: url("/assets/wall.jpg");
     background-color: #9eecff;
     background-size: 100%; background-repeat: no-repeat; background-attachment: fixed;
     position: absolute; 
@@ -19,8 +19,8 @@
 button 
 {
     padding-top: 50px;
-    padding-left: 100px;
-    padding-right: 100px;   
+    padding-left: 80px;
+    padding-right: 80px;   
 }
 
 button:hover

@@ -3,7 +3,7 @@
     <div class="form-row justify-content-around" id="top">
       <div class="form-group col-md-4">
         <label for="username">
-          <img src="https://zapodaj.net/images/08bdd420c4189.png" alt="Login:">
+          <img src="assets/loginn.png" alt="Login:">
           <div *ngIf="username.invalid && username.touched" class="form-group col-md-8">
             <span class="text-danger">Proszę podać nazwę użytkownika</span>
           </div>
@@ -15,7 +15,7 @@
     <div class="form-row justify-content-around">
       <div class="form-group col-md-4">
         <label for="password">
-          <img src="https://zapodaj.net/images/36d569cdd4a38.png" alt="Hasło:">
+          <img src="assets/haslo.png" alt="Hasło:">
           <div *ngIf="password.invalid && password.touched" class="form-group col-md-8">
             <span class="text-danger">Proszę podać hasło</span>
           </div>
@@ -27,7 +27,7 @@
     <div class="form-row justify-content-around">
       <div class="form-group col-md-4 text-center">
         <button routerLink="/home" [disabled]="(loginForm.invalid && loginForm.touched) || loginForm.untouched" type="submit" class="btn btn-link btn-lg">
-          <img src="https://zapodaj.net/images/54be6ce396de3.png" alt="Zaloguj" id="zaloguj">
+          <img src="assets/zaloguj.png" alt="Zaloguj" id="zaloguj">
         </button>
       </div>
     </div>
