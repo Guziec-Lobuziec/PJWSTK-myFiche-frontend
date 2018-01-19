@@ -1,6 +1,6 @@
 .container-fluid
 {
-   background-image: url("https://zapodaj.net/images/a799ab8ba5f6d.jpg");
+   background-image: url("/assets/wall.jpg");
    background-color: #9eecff;
    background-size: 100%; background-repeat: no-repeat; background-attachment: fixed;
    position: absolute; 
@@ -40,11 +40,13 @@ input
     border-radius: 20px;
 }
 
+
+
 #zaloguj
 {
     padding-top: 20px;
-    width: 40%;
-    height: 40%;
+    width: 50%;
+    height: 60%;
 }
 
 button:hover

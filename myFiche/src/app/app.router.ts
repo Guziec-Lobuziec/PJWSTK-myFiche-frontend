@@ -3,6 +3,7 @@ import { StartPageComponent } from './start-page/start-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { CatalogNavigatorComponent } from './catalog-navigator/catalog-navigator.component';
 
 
 export var appRoutes: Routes = [
