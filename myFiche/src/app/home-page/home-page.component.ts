@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  model = {
+    user: '',
+    path: ''
+  }
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+
+    this.route.params.subscribe(param => {
+      this.model.user = param.username
+    })
+
+    this.route.url.subscribe(url => {
+      this.model.path = url.join('/')
+    })
+
   }
 
 }

@@ -20,8 +20,12 @@ export var appRoutes: Routes = [
         component: RegisterPageComponent
     },
     {
-        path: 'home',
-        component: HomePageComponent,
-        children: [ { path: '**' } ]
+        path: 'home/:username',
+        children: [ 
+            { 
+                path: '**',
+                component: HomePageComponent
+            } 
+        ]
     }
 ]
