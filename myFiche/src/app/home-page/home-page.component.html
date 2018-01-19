@@ -4,7 +4,7 @@
       <img src="assets/logo-hp.png" alt="logo" id="logo">
     </div>
     <div class="col-md-2" id="btn1">
-      <button type="button" routerLink="/catalog" class="btn-primary-outline" id="pk">
+      <button type="button" (click)="toCatalogViev()" class="btn-primary-outline" id="pk">
         <img src="assets/file.png" alt="Katalog">
       </button>
       <div class="w-100"></div>
@@ -150,3 +150,12 @@
     </div>
   </div>
 </div>
+
+<span [ngSwitch]="state">
+<p *ngSwitchCase="0">
+  <app-fiche-edit></app-fiche-edit>
+</p>
+<p *ngSwitchCase="1">
+  <app-catalog-navigator></app-catalog-navigator>
+</p>
+</span>
