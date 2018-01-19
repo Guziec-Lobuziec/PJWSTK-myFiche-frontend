@@ -3,7 +3,7 @@
     <div class="form-row justify-content-around" id="top">
       <div class="form-group col-md-4">
         <label for="username">
-          <img src="https://zapodaj.net/images/08bdd420c4189.png" alt="Login:">
+          <img src="assets/loginn.png" alt="Login:">
           <div *ngIf="username.invalid && username.touched" class="form-group col-md-8">
             <span class="text-danger">Proszę podać nazwę użytkownika</span>
           </div>
@@ -15,7 +15,7 @@
     <div class="form-row justify-content-around">
       <div class="form-group col-md-4">
         <label for="password">
-          <img src="https://zapodaj.net/images/36d569cdd4a38.png" alt="Hasło:">
+          <img src="assets/haslo.png" alt="Hasło:">
           <div *ngIf="password.invalid && password.touched" class="form-group col-md-8">
             <span class="text-danger">Proszę podać hasło</span>
           </div>
@@ -27,7 +27,7 @@
     <div class="form-row justify-content-around">
       <div class="form-group col-md-4">
         <label for="rPassword">
-          <img src="https://zapodaj.net/images/43871c9c32b44.png" alt="Powtórz hasło:" id="rpass">
+          <img src="assets/phaslo.png" alt="Powtórz hasło:" id="rpass">
           <div *ngIf="rPassword.invalid && rPassword.touched" class="form-group col-md-8">
             <span class="text-danger">Hasła różnią się</span>
           </div>
@@ -39,7 +39,7 @@
     <div class="form-row justify-content-around">
       <div class="form-group col-md-4">
         <label for="email">
-          <img src="https://zapodaj.net/images/ff0c969102e2e.png" alt="E-mail:">
+          <img src="assets/email.png" alt="E-mail:">
         </label>
         <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required #email="ngModel" [(ngModel)]="model.email">
       </div>
@@ -48,7 +48,7 @@
       <div class="form-group col-md-4">
         <button routerLink="/home" [disabled]="(registerForm.invalid && registerForm.touched) || registerForm.untouched" type="submit"
           class="btn btn-link">
-          <img src="https://zapodaj.net/images/4428dec852343.png" alt="Zarejestruj" id="zarejestruj">
+          <img src="assets/zarejestruj.png" alt="Zarejestruj" id="zarejestruj">
         </button>
       </div>
     </div>
