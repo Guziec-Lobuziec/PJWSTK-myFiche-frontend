@@ -21,10 +21,7 @@ export var appRoutes: Routes = [
     },
     {
         path: 'home',
-        component: HomePageComponent
-    },
-    {
-        path: 'catalog',
-        component:  CatalogNavigatorComponent
+        component: HomePageComponent,
+        children: [ { path: '**' } ]
     }
 ]
