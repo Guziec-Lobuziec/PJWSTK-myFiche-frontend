@@ -11,7 +11,7 @@
       <p>Przeglądaj katalogi</p>
     </div>
     <div class="col-md-2" id="btn2">
-      <button type="button" class="btn-primary-outline" id="kpro" >
+      <button type="button" class="btn-primary-outline" id="kpro">
         <img src="assets/pro.png" alt="PRO">
       </button>
       <div class="w-100"></div>
@@ -24,8 +24,8 @@
       <button type="button" routerLink="" class="btn btn-info" id="wyloguj">Wyloguj</button>
     </div>
   </div>
-  <div class="row" id="content">
-    <div class="col-md-2" id="aside">
+  <div class="row align-items-center" id="content">
+    <div class="col-md-2 align-self-center" id="aside">
       <img src="assets/pe.png" alt="Panel edycji" id="pe">
       <p>Tryb</p>
       <div class="form-check">
@@ -58,7 +58,7 @@
           </div>
         </div>
       </form>
-      <div class="row justify-content-around" id="buttons">
+      <div class="row align-self-center justify-content-around" id="buttons">
         <button type="button" class="btn btn-primary" id="print">Drukuj</button>
         <div class="w-100"></div>
         <button type="button" class="btn btn-primary" id="save">Zapisz</button>
@@ -148,14 +148,19 @@
         </div>
       </div>
     </div>
+    <div class="row justify-content-around" id="footer">
+      <div class="col-md-12">
+        <p>Copyright © 2018</p>
+      </div>
+    </div>
   </div>
 </div>
 
 <span [ngSwitch]="state">
-<p *ngSwitchCase="0">
-  <app-fiche-edit></app-fiche-edit>
-</p>
-<p *ngSwitchCase="1">
-  <app-catalog-navigator></app-catalog-navigator>
-</p>
+  <p *ngSwitchCase="0">
+    <app-fiche-edit></app-fiche-edit>
+  </p>
+  <p *ngSwitchCase="1">
+    <app-catalog-navigator></app-catalog-navigator>
+  </p>
 </span>
