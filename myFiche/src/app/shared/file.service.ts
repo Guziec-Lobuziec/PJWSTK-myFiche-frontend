@@ -4,15 +4,17 @@ import {Http, Response, Headers, RequestOptions} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { ProgramFile } from './model/program-file';
+import { Catalog } from './model/catalog';
 
 @Injectable()
 export class FileService {
 
 constructor(private http:Http) {}
 
-public getFile(url:string,username:string):Observable<ProgramFile> {
+public getFile(username:string,url:string):Observable<ProgramFile> {
 
-    this.http.get()
+    return this.http.get(environment.server_url+'/'+username+'/'+url)
+                    .map(resp => resp.json());
 
 }
 
