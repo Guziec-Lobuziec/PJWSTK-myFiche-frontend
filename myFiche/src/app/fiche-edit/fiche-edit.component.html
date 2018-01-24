@@ -71,47 +71,12 @@
               </div>
           </div>
       </div>
-      <div class="col-md-4" id="workingfield2">
-        <div class="row align-items-center justify-content-around" id="firstrow2">
-          <div class="col-md">
+      <div *ngIf="fiche.twoSided" class="col-md-4" id="workingfield2">
+          <div *ngFor="let rowElement of ficheDataViev; let i=index" class="row align-items-center justify-content-around element-row">
+              <div *ngFor="let item of rowElement.row" class="col-md">
+                {{item.back}}
+              </div>
           </div>
-          <div class="col-md">
-          </div>
-          <div class="col-md">
-          </div>
-          <div class="col-md">
-          </div>
-        </div>
-        <div class="row align-items-center justify-content-around" id="secondrow2">
-          <div class="col-md">
-          </div>
-          <div class="col-md">
-          </div>
-          <div class="col-md">
-          </div>
-          <div class="col-md">
-          </div>
-        </div>
-        <div class="row align-items-center justify-content-around" id="thirdrow2">
-          <div class="col-md">
-          </div>
-          <div class="col-md">
-          </div>
-          <div class="col-md">
-          </div>
-          <div class="col-md">
-          </div>
-        </div>
-        <div class="row align-items-center justify-content-around" id="fourthrow2">
-          <div class="col-md">
-          </div>
-          <div class="col-md">
-          </div>
-          <div class="col-md">
-          </div>
-          <div class="col-md">
-          </div>
-        </div>
       </div>
       <div class="row justify-content-around" id="footer">
         <div class="col-md-12">

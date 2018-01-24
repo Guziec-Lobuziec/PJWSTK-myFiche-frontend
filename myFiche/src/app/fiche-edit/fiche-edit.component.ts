@@ -28,8 +28,9 @@ export class FicheEditComponent implements OnInit {
           .row.push({front: data.frontText,back: data.backText});
       })
 
-      for(var i = this.rowSize - this.ficheDataViev[this.ficheDataViev.length-1].row.length;
-          i<this.rowSize; ++i) {
+      for(var i = 0;
+          i<this.rowSize - this.ficheDataViev[this.ficheDataViev.length-1].row.length;
+           ++i) {
             this.ficheDataViev[this.ficheDataViev.length-1].row.push({front:'',back:''});
           }
     }

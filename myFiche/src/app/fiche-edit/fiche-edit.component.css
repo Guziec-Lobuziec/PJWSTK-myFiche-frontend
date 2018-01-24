@@ -221,7 +221,7 @@
 
 }
 
-#firstrow, #secondrow, #thirdrow, #fourthrow, #firstrow2, #secondrow2, #thirdrow2, #fourthrow2
+.element-row
 {
     height: 25%;
     width: 100%; 
