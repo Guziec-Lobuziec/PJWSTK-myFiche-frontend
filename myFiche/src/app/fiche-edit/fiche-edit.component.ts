@@ -21,27 +21,25 @@ export class FicheEditComponent implements OnInit {
       this.fiche.ficheData.forEach((data,index) => {
 
         if(index%this.rowSize === 0){
-          this.ficheDataViev.push({row: []});
+          this.ficheDataView.push({row: []});
         }
 
-        this.ficheDataViev[Math.floor(index/this.rowSize)]
+        this.ficheDataView[Math.floor(index/this.rowSize)]
           .row.push({front: data.frontText,back: data.backText});
       })
 
       for(var i = 0;
-          i<this.rowSize - this.ficheDataViev[this.ficheDataViev.length-1].row.length;
+          i<this.rowSize - this.ficheDataView[this.ficheDataView.length-1].row.length;
            ++i) {
-            this.ficheDataViev[this.ficheDataViev.length-1].row.push({front:'',back:''});
+            this.ficheDataView[this.ficheDataView.length-1].row.push({front:'',back:''});
           }
     }
-
-    console.log(this.ficheDataViev);
 
   }
 
   fiche:Fiche;
   rowSize:number = 4;
-  ficheDataViev:{row:{front:string,back:string}[]}[] = [];
+  ficheDataView:{row:{front:string,back:string}[]}[] = [];
 
   constructor(private homePageStateService:HomePageStateService) { }
 
