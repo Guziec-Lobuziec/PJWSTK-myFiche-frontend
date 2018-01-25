@@ -201,14 +201,14 @@
     margin: 0 auto;
 }
 
-#frow, #srow, #trow 
+.element-row
 {
     height: 33%;
     width: 100%; 
     margin: 0 auto;    
 }
 
-#frow img, #srow img, #trow img 
+.element-row img
 {
     width: 50%;
     height: 70%;

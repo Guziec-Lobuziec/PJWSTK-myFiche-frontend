@@ -4,7 +4,7 @@
       <img src="assets/logo-hp.png" alt="logo" id="logo">
     </div>
     <div class="col-md-2" id="btn1">
-      <button type="button" (click)="toFicheEdit()" class="btn-primary-outline" id="kf">
+      <button type="button" (click)="createNewFiche()" class="btn-primary-outline" id="kf">
         <img src="assets/mf.png" alt="Katalog">
       </button>
       <div class="w-100"></div>
@@ -33,59 +33,12 @@
       </div>
       <div class="row text-center" id="second">
         <div class="col-md-12 align-items-center justify-content-around" id="cataloglist">
-          
-          <div class="row align-items-center justify-content-around" id="frow">
-            <div class="col-md">
-              <img src="/assets/folder.png">
-              <p>Name</p>
-            </div>
-            <div class="col-md">
-              <img src="/assets/folder.png">
-              <p>Name</p>
-            </div>
-            <div class="col-md">
-              <img src="/assets/folder.png">
-              <p>Name</p>
-            </div>
-            <div class="col-md">
-              <img src="/assets/folder.png">
-              <p>Name</p>
-            </div>
-          </div>
-          <div class="row align-items-center justify-content-around" id="srow">
-            <div class="col-md">
-              <img src="/assets/folder.png">
-              <p>Name</p>
-            </div>
-            <div class="col-md">
-              <img src="/assets/folder.png">
-              <p>Name</p>
-            </div>
-            <div class="col-md">
-              <img src="/assets/folder.png">
-              <p>Name</p>
-            </div>
-            <div class="col-md">
-              <img src="/assets/folder.png">
-              <p>Name</p>
-            </div>
-          </div>
-          <div class="row align-items-center justify-content-around" id="trow">
-            <div class="col-md">
-              <img src="/assets/folder.png">
-              <p>Name</p>
-            </div>
-            <div class="col-md">
-              <img src="/assets/folder.png">
-              <p>Name</p>
-            </div>
-            <div class="col-md">
-              <img src="/assets/folder.png">
-              <p>Name</p>
-            </div>
-            <div class="col-md">
-              <img src="/assets/folder.png">
-              <p>Name</p>
+          <div *ngFor="let rowElement of catalogView" class="row align-items-center justify-content-around" id="frow">
+            <div *ngFor="let item of rowElement.row" class="col-md">
+              <a *ngIf="item.name.length != 0" [routerLink]="[item.name]">
+                <img src="/assets/folder.png">
+                <p>{{item.name}}</p>
+              </a>
             </div>
           </div>
         </div>

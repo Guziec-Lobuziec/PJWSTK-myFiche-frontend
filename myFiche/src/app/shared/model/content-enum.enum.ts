@@ -1,5 +1,11 @@
 export enum ContentEnum {
 
-FICHE_EDITOR = 0, CATALOG_VIEW = 1
+VIEW_CATALOG = 0, 
+NEW_FICHE = 1, 
+EDIT_FICHE = 2, 
+SAVE_FICHE = 3, 
+NEW_CATALOG = 4, 
+DELETE_FILE = 5,
+SAVE_FICHE_AS = 6
 
 }

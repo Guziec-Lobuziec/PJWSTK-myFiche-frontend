@@ -1,22 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { HomePageStateService } from '../shared/home-page-state.service';
 import { ContentEnum } from '../shared/model/content-enum.enum';
-import { Input } from '@angular/core';
+import { Input, Output } from '@angular/core';
 import { Catalog } from '../shared/model/catalog';
 import { isNullOrUndefined } from 'util';
+import { ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-catalog-navigator',
   templateUrl: './catalog-navigator.component.html',
   styleUrls: ['./catalog-navigator.component.css'],
-  providers: [HomePageStateService]
+  providers: [HomePageStateService],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CatalogNavigatorComponent implements OnInit {
 
   @Input('file') set setupFileModel(file:Catalog) {
-
     this.catalog = file;
+    this.catalogView = [];
+
     if(!isNullOrUndefined(this.catalog.files)){
+
+      if(this.catalog.files.length === 0)
+        this.catalogView.push({row: []});
+
       this.catalog.files.forEach((data,index) => {
 
         if(index%this.rowSize === 0){
@@ -34,19 +42,24 @@ export class CatalogNavigatorComponent implements OnInit {
           }
     }
 
+    console.log(this.catalog);
+    console.log(this.catalogView);
+
   }
 
   catalog:Catalog;
   rowSize:number = 4;
   catalogView:{row:{name:string,type:string}[]}[] = [];
 
-  constructor(private homePageStateService:HomePageStateService) { }
+  constructor(
+    private homePageStateService:HomePageStateService,
+    private ref:ChangeDetectorRef) { }
 
   ngOnInit() {
   }
 
-  toFicheEdit() {
-    this.homePageStateService.swapContent(ContentEnum.FICHE_EDITOR);
+  createNewFiche() {
+    this.homePageStateService.swapContent(ContentEnum.NEW_FICHE);
   }
 
 }

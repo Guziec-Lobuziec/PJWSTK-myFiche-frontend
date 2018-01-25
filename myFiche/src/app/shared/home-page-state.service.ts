@@ -7,19 +7,29 @@ import { BehaviorSubject } from 'rxjs/Rx'
 export class HomePageStateService {
 
 private static contentSubject:BehaviorSubject<ContentEnum> = 
-    new BehaviorSubject<ContentEnum>(ContentEnum.FICHE_EDITOR);
+    new BehaviorSubject<ContentEnum>(ContentEnum.VIEW_CATALOG);
+
+private static lastContentSubject:BehaviorSubject<ContentEnum> = 
+    new BehaviorSubject<ContentEnum>(ContentEnum.VIEW_CATALOG);
 
 constructor() { }
 
-public swapContent(contentName:ContentEnum): void{
+public swapContent(contentName:ContentEnum): ContentEnum{
+
+    var last = HomePageStateService.contentSubject.getValue();
+    HomePageStateService.lastContentSubject.next(last);
 
     HomePageStateService.contentSubject.next(contentName);
 
+    return last;
 }
 
-public listenToContentChange(): BehaviorSubject<ContentEnum> {
+public listenToContentChange(): Observable<{current: ContentEnum, last: ContentEnum}> {
 
-    return HomePageStateService.contentSubject;
+    return Observable.zip(
+        HomePageStateService.contentSubject,
+        HomePageStateService.lastContentSubject,
+        (current: ContentEnum,last: ContentEnum) => ({current,last}));
 
 }
 
