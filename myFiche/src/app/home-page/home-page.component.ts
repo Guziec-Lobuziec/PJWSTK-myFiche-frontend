@@ -27,6 +27,27 @@ export class HomePageComponent implements OnInit {
     private fileService:FileService,
     private homePageStateService:HomePageStateService) { }
 
+  refresh() {
+
+    this.route.params.mergeMap(param => this.route.url.map(url => ({param,url})))
+    .subscribe( pathProperties => {
+
+      this.user =  pathProperties.param.username;
+      this.path = pathProperties.url.join('/');
+
+      this.fileService.getFile(this.user,this.path).subscribe(f => {
+        this.file = f;
+  
+        if(f.type === "Catalog")
+          this.homePageStateService.swapContent(ContentEnum.VIEW_CATALOG,this.file);
+        else if(f.type === "Fiche")
+          this.homePageStateService.swapContent(ContentEnum.EDIT_FICHE,this.file);
+      })
+      
+    })
+
+  }
+
   ngOnInit() {
 
     // this.route.params.subscribe(param => {
@@ -79,28 +100,15 @@ export class HomePageComponent implements OnInit {
     this.controlCases.push(content => {
       if(content.current === ContentEnum.NEW_CATALOG){
         this.state = "0";
-        this.fileService.addFile(this.user,this.path,content.file);
+        this.fileService.addFile(this.user,this.path,content.file).subscribe(resp => {
+          this.refresh();
+        });
         return true;
       }
       return false;
     });
 
-    this.route.params.mergeMap(param => this.route.url.map(url => ({param,url})))
-      .subscribe( pathProperties => {
-
-        this.user =  pathProperties.param.username;
-        this.path = pathProperties.url.join('/');
-
-        this.fileService.getFile(this.user,this.path).subscribe(f => {
-          this.file = f;
-    
-          if(f.type === "Catalog")
-            this.homePageStateService.swapContent(ContentEnum.VIEW_CATALOG,this.file);
-          else if(f.type === "Fiche")
-            this.homePageStateService.swapContent(ContentEnum.EDIT_FICHE,this.file);
-        })
-        
-      })
+    this.refresh();
 
     this.homePageStateService.listenToContentChange().subscribe( state => {
 

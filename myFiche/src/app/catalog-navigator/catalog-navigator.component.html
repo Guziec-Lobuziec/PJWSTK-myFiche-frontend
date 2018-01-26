@@ -37,7 +37,7 @@
       </div>
       <div class="row text-center" id="second">
         <div class="col-md-12 align-items-center justify-content-around" id="cataloglist">
-          <div *ngFor="let rowElement of catalogView" class="row align-items-center justify-content-around" id="frow">
+          <div *ngFor="let rowElement of catalogView" class="row align-items-center justify-content-around element-row">
             <div *ngFor="let item of rowElement.row" class="col-md">
               <a *ngIf="item.name.length != 0" [routerLink]="[item.name]">
                 <img src="/assets/folder.png">
@@ -45,15 +45,15 @@
               </a>
             </div>
           </div>
-          <p-dialog header="Title" [(visible)]="newCatalogDialog">
-            <p-header>
-              Header content here
-            </p-header>
-            <input type="text" [(ngModel)]="newCatalog.name">
-            <p-footer>
-                <button type="button" (click)="addNewCatalog()">Stworz</button>
-                <button type="button" (click)="cancelAddNewCatalog()">Anuluj</button>
-            </p-footer>
+          <p-dialog [(visible)]="newCatalogDialog">
+              <p-header>
+                  Header content here
+              </p-header>
+                <input type="text" [(ngModel)]="newCatalog.name">
+              <p-footer>
+                  <button (click)="addNewCatalog()">Stwórz</button>
+                  <button (click)="cancelAddNewCatalog()">Anuluj</button>
+              </p-footer>
           </p-dialog>
         </div>
       </div>

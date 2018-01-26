@@ -1,10 +1,10 @@
-import { MyFichePage } from './app.po';
+import { AppPage } from './app.po';
 
 describe('my-fiche App', () => {
-  let page: MyFichePage;
+  let page: AppPage;
 
   beforeEach(() => {
-    page = new MyFichePage();
+    page = new AppPage();
   });
 
   it('should display welcome message', () => {

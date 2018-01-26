@@ -16,7 +16,7 @@ import { CatalogNavigatorComponent } from './catalog-navigator/catalog-navigator
 import { appRoutes } from './app.router';
 import { EqualValidatorDirective } from './shared/equal-validator.directive';
 
-import { DialogModule } from 'primeng/primeng';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   declarations: [

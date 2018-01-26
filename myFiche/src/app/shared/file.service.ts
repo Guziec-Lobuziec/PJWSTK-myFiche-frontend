@@ -11,6 +11,8 @@ export class FileService {
 
 constructor(private http:Http) {}
 
+private headers = new Headers({ 'Content-Type': 'application/json' });
+
 public getFile(username:string,url:string):Observable<ProgramFile> {
 
     return this.http.get(environment.server_url+'/'+username+'/'+url)
@@ -20,7 +22,10 @@ public getFile(username:string,url:string):Observable<ProgramFile> {
 
 public addFile(username:string,url:string, file:ProgramFile):Observable<Response> {
     
-    return this.http.post(environment.server_url+'/'+username+'/'+url,file);
+    return this.http.post(
+        environment.server_url+'/'+username+'/'+url,
+        JSON.stringify(file),
+        { headers: this.headers });
 
 }
 
