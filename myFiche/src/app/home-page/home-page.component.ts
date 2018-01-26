@@ -79,7 +79,7 @@ export class HomePageComponent implements OnInit {
     this.controlCases.push(content => {
       if(content.current === ContentEnum.NEW_CATALOG){
         this.state = "0";
-        this.fileService.addFile(this.user,this.path,this.file);
+        this.fileService.addFile(this.user,this.path,content.file);
         return true;
       }
       return false;
