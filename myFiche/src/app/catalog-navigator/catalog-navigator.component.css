@@ -186,7 +186,7 @@
     height: 100%;
 }
 
-#path p
+#path
 {
     align: left;
     font-weight: bold;
@@ -197,7 +197,7 @@
 #top
 {
     width: 100%;
-    height: 10%;    
+    height: 12%;    
     margin: 0 auto;
 }
 
@@ -238,4 +238,32 @@
 #cataloglist img:hover
 {
     transform: scale(1.05, 1.05);
+}
+
+#back
+{   
+   margin: 0 auto;
+   margin-right: 3%;
+   height: 100%; 
+   width: 10%;   
+}
+
+#back img
+{    
+    width: 100%;
+    height: 100%; 
+}
+
+#add-folder img
+{
+    width:100%;
+    height: 100%;    
+}
+
+#add-folder
+{
+    float: right;
+    margin-right: 5%;    
+    height: 100%; 
+    width: 8%;    
 }
