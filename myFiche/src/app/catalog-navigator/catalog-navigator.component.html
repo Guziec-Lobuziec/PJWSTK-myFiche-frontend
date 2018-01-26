@@ -29,9 +29,9 @@
       <div class="row" id="top">
         <div class="col-md align-items-center text-left" id="path">
                
-                <button type="button" id="back"  title="Powrót"><img src="/assets/arrow.png" alt="Powrót"></button>
+                <button routerLink=".." type="button" id="back"  title="Powrót"><img src="/assets/arrow.png" alt="Powrót"></button>
                 {{catalog.name}}
-               <button type="button" id="add-folder"  title="Dodaj folder"><img src="/assets/add-folder.png" alt="Dodaj folder"></button>
+               <button (click)="newCatalogDialog = true" type="button" id="add-folder"  title="Dodaj folder"><img src="/assets/add-folder.png" alt="Dodaj folder"></button>
      
               </div>
       </div>
@@ -45,6 +45,16 @@
               </a>
             </div>
           </div>
+          <p-dialog header="Title" [(visible)]="newCatalogDialog">
+            <p-header>
+              Header content here
+            </p-header>
+            <input type="text" [(ngModel)]="newCatalog.name">
+            <p-footer>
+                <button type="button" (click)="addNewCatalog()">Stworz</button>
+                <button type="button" (click)="cancelAddNewCatalog()">Anuluj</button>
+            </p-footer>
+          </p-dialog>
         </div>
       </div>
     </div>

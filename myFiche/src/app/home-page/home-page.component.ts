@@ -20,7 +20,7 @@ export class HomePageComponent implements OnInit {
     state:string = ContentEnum.VIEW_CATALOG.toString();
     fileInBackground:ProgramFile = new ProgramFile();
     file:ProgramFile = new ProgramFile();
-    controlCases:((content:{current:ContentEnum,last:ContentEnum}) => boolean)[] = [];
+    controlCases:((content:{current:ContentEnum,last:ContentEnum, file:ProgramFile}) => boolean)[] = [];
 
   constructor(
     private route: ActivatedRoute, 
@@ -54,7 +54,7 @@ export class HomePageComponent implements OnInit {
       if(content.current === ContentEnum.NEW_FICHE){
         this.state = "1"
         this.fileInBackground = this.file;
-        this.file = new Fiche;
+        this.file = new Fiche();
         return true;
       }
       return false;
@@ -66,7 +66,24 @@ export class HomePageComponent implements OnInit {
         return true;
       }
       return false;
-    })
+    });
+
+    this.controlCases.push(content => {
+      if(content.current === ContentEnum.SAVE_FICHE){
+        this.state = "0"
+        return true;
+      }
+      return false;
+    });
+
+    this.controlCases.push(content => {
+      if(content.current === ContentEnum.NEW_CATALOG){
+        this.state = "0";
+        this.fileService.addFile(this.user,this.path,this.file);
+        return true;
+      }
+      return false;
+    });
 
     this.route.params.mergeMap(param => this.route.url.map(url => ({param,url})))
       .subscribe( pathProperties => {
@@ -78,9 +95,9 @@ export class HomePageComponent implements OnInit {
           this.file = f;
     
           if(f.type === "Catalog")
-            this.homePageStateService.swapContent(ContentEnum.VIEW_CATALOG);
+            this.homePageStateService.swapContent(ContentEnum.VIEW_CATALOG,this.file);
           else if(f.type === "Fiche")
-            this.homePageStateService.swapContent(ContentEnum.EDIT_FICHE);
+            this.homePageStateService.swapContent(ContentEnum.EDIT_FICHE,this.file);
         })
         
       })

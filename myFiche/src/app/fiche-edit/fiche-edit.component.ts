@@ -49,7 +49,7 @@ export class FicheEditComponent implements OnInit {
   constructor(private homePageStateService:HomePageStateService) { }
 
   exitWithOutSaving() {
-    this.homePageStateService.swapContent(ContentEnum.VIEW_CATALOG);
+    this.homePageStateService.swapContent(ContentEnum.VIEW_CATALOG, null);
   }
 
   ngOnInit() {

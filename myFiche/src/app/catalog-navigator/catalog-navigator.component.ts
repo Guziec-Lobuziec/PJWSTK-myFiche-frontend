@@ -50,6 +50,8 @@ export class CatalogNavigatorComponent implements OnInit {
   catalog:Catalog;
   rowSize:number = 4;
   catalogView:{row:{name:string,type:string}[]}[] = [];
+  newCatalog:Catalog = new Catalog();
+  newCatalogDialog:boolean = false;
 
   constructor(
     private homePageStateService:HomePageStateService,
@@ -59,7 +61,18 @@ export class CatalogNavigatorComponent implements OnInit {
   }
 
   createNewFiche() {
-    this.homePageStateService.swapContent(ContentEnum.NEW_FICHE);
+    this.homePageStateService.swapContent(ContentEnum.NEW_FICHE,null);
+  }
+
+  addNewCatalog() {
+    this.newCatalogDialog = true;
+    this.homePageStateService.swapContent(ContentEnum.NEW_CATALOG,this.newCatalog);
+    this.newCatalog = new Catalog();
+  }
+
+  cancelAddNewCatalog() {
+    this.newCatalogDialog = false;
+    this.newCatalog = new Catalog();
   }
 
 }

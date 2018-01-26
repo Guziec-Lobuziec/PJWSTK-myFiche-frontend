@@ -18,4 +18,10 @@ public getFile(username:string,url:string):Observable<ProgramFile> {
 
 }
 
+public addFile(username:string,url:string, file:ProgramFile):Observable<Response> {
+    
+    return this.http.post(environment.server_url+'/'+username+'/'+url,file);
+
+}
+
 }
