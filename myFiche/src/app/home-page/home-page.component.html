@@ -1,9 +1,9 @@
 
 <span [ngSwitch]="state">
-<p *ngSwitchCase="0">
-  <app-fiche-edit [file]="file"></app-fiche-edit>
-</p>
-<p *ngSwitchCase="1">
-  <app-catalog-navigator [file]="file"></app-catalog-navigator>
-</p>
+    <p *ngSwitchCase="0">
+        <app-catalog-navigator [file]="file"></app-catalog-navigator>
+    </p>
+    <p *ngSwitchCase="1">
+        <app-fiche-edit [file]="file"></app-fiche-edit>
+    </p>
 </span>

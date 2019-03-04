@@ -17,7 +17,12 @@ export class FicheEditComponent implements OnInit {
   @Input('file') set setupFileModel(file:Fiche){
 
     this.fiche = file;
+    this.ficheDataView = [];
     if(!isNullOrUndefined(this.fiche.ficheData)){
+
+      if(this.fiche.ficheData.length === 0)
+        this.ficheDataView.push({row: []});
+
       this.fiche.ficheData.forEach((data,index) => {
 
         if(index%this.rowSize === 0){
@@ -43,8 +48,8 @@ export class FicheEditComponent implements OnInit {
 
   constructor(private homePageStateService:HomePageStateService) { }
 
-  toCatalogViev() {
-    this.homePageStateService.swapContent(ContentEnum.CATALOG_VIEW);
+  exitWithOutSaving() {
+    this.homePageStateService.swapContent(ContentEnum.VIEW_CATALOG, null);
   }
 
   ngOnInit() {

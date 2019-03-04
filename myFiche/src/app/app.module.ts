@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { NgIf } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { StartPageComponent } from './start-page/start-page.component';
@@ -14,6 +15,8 @@ import { FicheEditComponent } from './fiche-edit/fiche-edit.component';
 import { CatalogNavigatorComponent } from './catalog-navigator/catalog-navigator.component';
 import { appRoutes } from './app.router';
 import { EqualValidatorDirective } from './shared/equal-validator.directive';
+
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import { EqualValidatorDirective } from './shared/equal-validator.directive';
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    BrowserAnimationsModule,
+    RouterModule.forRoot(appRoutes),
+    DialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

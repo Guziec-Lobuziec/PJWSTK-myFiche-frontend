@@ -4,7 +4,7 @@
         <img src="assets/logo-hp.png" alt="logo" id="logo">
       </div>
       <div class="col-md-2" id="btn1">
-        <button type="button" (click)="toCatalogViev()" class="btn-primary-outline" id="pk">
+        <button type="button" (click)="exitWithOutSaving()" class="btn-primary-outline" id="pk">
           <img src="assets/file.png" alt="Katalog">
         </button>
         <div class="w-100"></div>
@@ -65,14 +65,14 @@
         </div>
       </div>
       <div class="col-md-4" id="workingfield1">
-          <div *ngFor="let rowElement of ficheDataViev; let i=index" class="row align-items-center justify-content-around element-row">
+          <div *ngFor="let rowElement of ficheDataViev" class="row align-items-center justify-content-around element-row">
               <div *ngFor="let item of rowElement.row" class="col-md">
                 {{item.front}}
               </div>
           </div>
       </div>
       <div *ngIf="fiche.twoSided" class="col-md-4" id="workingfield2">
-          <div *ngFor="let rowElement of ficheDataViev; let i=index" class="row align-items-center justify-content-around element-row">
+          <div *ngFor="let rowElement of ficheDataViev" class="row align-items-center justify-content-around element-row">
               <div *ngFor="let item of rowElement.row" class="col-md">
                 {{item.back}}
               </div>
